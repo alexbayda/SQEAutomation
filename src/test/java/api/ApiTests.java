@@ -1,14 +1,14 @@
 package api;
 
 import io.restassured.response.Response;
-import org.saucelabs.api.data.TestData;
-import org.saucelabs.models.Product;
+import com.epam.api.data.TestData;
+import com.epam.models.Product;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
 
 import static assertions.ProductAssertions.assertProductProperties;
-import static org.saucelabs.api.data.ProductBuilder.buildProduct;
+import static com.epam.api.data.ProductBuilder.buildProduct;
 
 @lombok.extern.slf4j.Slf4j
 public class ApiTests extends BaseTest {

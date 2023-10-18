@@ -1,4 +1,4 @@
-package org.saucelabs.ui;
+package com.epam.ui;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;

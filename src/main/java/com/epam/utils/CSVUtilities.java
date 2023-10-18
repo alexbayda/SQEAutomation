@@ -1,7 +1,7 @@
-package org.saucelabs.utils;
+package com.epam.utils;
 
 import lombok.experimental.UtilityClass;
-import org.saucelabs.models.UserDto;
+import com.epam.models.UserDto;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,14 +1,14 @@
-package org.saucelabs.ui;
+package com.epam.ui;
 
 import com.codeborne.selenide.*;
-import org.saucelabs.utils.CSVUtilities;
-import org.saucelabs.models.UserDto;
+import com.epam.utils.CSVUtilities;
+import com.epam.models.UserDto;
 
 import java.util.Collections;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
-import static org.saucelabs.utils.RandomSelector.getRandom;
+import static com.epam.utils.RandomSelector.getRandom;
 
 public class MainPage {
 

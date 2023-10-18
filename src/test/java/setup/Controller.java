@@ -2,7 +2,7 @@ package setup;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.saucelabs.models.Product;
+import com.epam.models.Product;
 
 import static io.restassured.RestAssured.given;
 

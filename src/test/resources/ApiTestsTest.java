@@ -1,7 +1,7 @@
 //package api;
 //
 //import io.restassured.response.Response;
-//import org.saucelabs.models.Product;
+//import models.com.epam.Product;
 //import org.testng.annotations.BeforeMethod;
 //import org.testng.annotations.Test;
 //import setup.BaseTest;

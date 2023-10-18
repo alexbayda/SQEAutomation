@@ -1,8 +1,8 @@
 package assertions;
 
 import org.hamcrest.MatcherAssert;
-import org.saucelabs.models.Product;
-import org.saucelabs.models.User;
+import com.epam.models.Product;
+import com.epam.models.User;
 
 import java.util.Objects;
 import java.util.function.Predicate;

@@ -1,4 +1,4 @@
-package org.saucelabs.models;
+package com.epam.models;
 
 import lombok.Getter;
 import lombok.Setter;

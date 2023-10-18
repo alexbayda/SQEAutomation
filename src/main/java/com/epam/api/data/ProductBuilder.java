@@ -1,6 +1,6 @@
-package org.saucelabs.api.data;
+package com.epam.api.data;
 
-import org.saucelabs.models.Product;
+import com.epam.models.Product;
 
 public class ProductBuilder {
 

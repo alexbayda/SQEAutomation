@@ -1,4 +1,4 @@
-package org.saucelabs.models;
+package com.epam.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

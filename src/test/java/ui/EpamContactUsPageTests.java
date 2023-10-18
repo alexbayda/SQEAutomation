@@ -1,7 +1,7 @@
 package ui;
 
 import com.codeborne.selenide.Configuration;
-import org.saucelabs.ui.EpamContactUsPage;
+import com.epam.ui.EpamContactUsPage;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import setup.BaseTest;

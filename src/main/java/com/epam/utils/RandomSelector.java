@@ -1,4 +1,4 @@
-package org.saucelabs.utils;
+package com.epam.utils;
 
 import lombok.experimental.UtilityClass;
 import org.openqa.selenium.WebElement;

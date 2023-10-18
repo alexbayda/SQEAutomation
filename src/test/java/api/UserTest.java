@@ -1,6 +1,6 @@
 package api;
 
-import org.saucelabs.models.User;
+import com.epam.models.User;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
