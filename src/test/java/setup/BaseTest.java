@@ -63,13 +63,15 @@ public class BaseTest {
     protected RequestSpecification requestSpec;
     protected String environment = System.getProperty("env", "dev");
     private static String BASE_URL;
+
+    protected String mainPageBaseUrl = "https://www.epam.com/";
+    protected String contactUsPageBaseUrl = "https://www.epam.com/about/who-we-are/contact";
+    protected String aboutPageBaseUrl = "https://www.epam.com/about";
     public void setUpUI(){
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
-        Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
-        Configuration.baseUrl = "https://www.saucedemo.com/";
 
     }
 

@@ -1,6 +1,8 @@
 package org.saucelabs.api.data;
 
-import org.testng.annotations.DataProvider;
+
+
+//import org.testng.annotations.DataProvider;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -20,7 +22,7 @@ public class TestData implements Iterable<Object[]> {
         return productData.iterator();
     }
 
-    @DataProvider(name = "productData")
+//    @DataProvider(name = "productData")
     public static Object[][] productDataProvider() {
         Iterable<Object[]> iterable = new TestData();
         return StreamSupport.stream(iterable.spliterator(), false).toArray(Object[][]::new);

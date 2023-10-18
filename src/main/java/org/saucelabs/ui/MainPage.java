@@ -25,13 +25,14 @@ public class MainPage {
     private final SelenideElement checkOutContinueButton = $x("//*[@id=\"continue\"]");
     private final SelenideElement finishCheckoutButton = $("#finish");
 
-    public MainPage(String url) {
-        open(url, MainPage.class)
-                .passwordBox.sendKeys("blabla"); //don't do it in real life
-    }
+//    public MainPage(String url) {
+//        open(url, MainPage.class)
+//                .passwordBox.sendKeys("blabla"); //don't do it in real life
+//    }
 
 
     public void logIn() {
+        open("https://www.saucedemo.com/");
         usernameBox.sendKeys("standard_user");
         passwordBox.sendKeys("secret_sauce");
         loginButton.click();
