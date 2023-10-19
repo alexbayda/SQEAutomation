@@ -12,9 +12,9 @@ public class EpamContactUsPageTests extends BaseTest {
 
     @BeforeTest
     public void setup() {
-        Configuration.baseUrl = contactUsPageBaseUrl;
+        Configuration.baseUrl = epamContactUsPageBaseUrl;
         setUpUI();
-        epamAboutUsPage = new EpamContactUsPage(contactUsPageBaseUrl);
+        epamAboutUsPage = new EpamContactUsPage(epamContactUsPageBaseUrl);
     }
 
     @Test

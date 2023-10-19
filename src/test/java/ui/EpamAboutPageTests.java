@@ -12,14 +12,14 @@ public class EpamAboutPageTests extends BaseTest {
 
     @BeforeTest
     public void setup() {
-        Configuration.baseUrl = aboutPageBaseUrl;
+        Configuration.baseUrl = epamAboutPageBaseUrl;
         setUpUI();
-        epamAboutUsPage = new EpamAboutPage(aboutPageBaseUrl);
+        epamAboutUsPage = new EpamAboutPage(epamAboutPageBaseUrl);
     }
 
     @Test
     public void checkFormFieldsValidationTest(){
-        epamAboutUsPage.checkCompanyLogoLeadsToMainPage(mainPageBaseUrl);
+        epamAboutUsPage.checkCompanyLogoLeadsToMainPage(epamMainPageBaseUrl);
     }
 
     @Test

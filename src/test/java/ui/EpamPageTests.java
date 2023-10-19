@@ -14,8 +14,8 @@ public class EpamPageTests extends BaseTest {
     @BeforeTest
     public void setup() {
         setUpUI();
-        Configuration.baseUrl = mainPageBaseUrl;
-        epamMainPage = new EpamMainPage(mainPageBaseUrl);
+        Configuration.baseUrl = epamMainPageBaseUrl;
+        epamMainPage = new EpamMainPage(epamMainPageBaseUrl);
     }
 
     @Test

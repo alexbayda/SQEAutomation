@@ -15,58 +15,15 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 
-    //dependency inversion ✓
-
-    //implement Class Composition and Aggregation ✓
-
-    //Read about association of pattern bridge -- focu sing on abstaction(say tv + concrede Sony and Sharp, then we have implementation new remote + old remote -->
-    // e.g Tv//abstract oldRemote = new Sony//concreteObject(new OldRemote()//interface) -->
-    // oldRemote.callMethod()   ) ✓
-
-
-
-    // facade pattern//not only refactoring guru! -- something like dependency inversion, client communicates with high level interface -->
-    // and the level interface then interacts with low level entangled classes, facade layer is a class ✓
-
-
-    //how to go around inheritance -->
-    // Composition
-    // Interface-based Programming: Rather than relying on class inheritance, you can define interfaces that specify a contract for behavior
-    //Strategy Design Pattern - where we substitute inheritance and having multiple object classes with giving 1 object various capabilities via interfaces that are later extended with
-    //more implementation
-
-    //Generics ***
-    //Decorator Design Pattern ✓
-    //native methods ✓
-    //pass by value pass by reference ✓
-
-    //failsafe failfast ✓
-    //comparator vs comparable ✓
-    //collections methods ✓
-    //exceptions checked unchecked ✓
-    //labels ✓
-    //garbage collector + pull of strings + method intern + java memory model ✓
-    //Maps methods ✓
-    //contact .equals() .hashCode() ✓
-    //rabit mq - maybe
-    //composition management of inner object life
-    //100 questions about Java
-    //connection to DB
-    //design pattern groups
-    //primitive type and type casting, what matches what
-    //primitive types
-
-
-    //continue
-
     protected Controller controller;
     protected RequestSpecification requestSpec;
     protected String environment = System.getProperty("env", "dev");
     private static String BASE_URL;
 
-    protected String mainPageBaseUrl = "https://www.epam.com/";
-    protected String contactUsPageBaseUrl = "https://www.epam.com/about/who-we-are/contact";
-    protected String aboutPageBaseUrl = "https://www.epam.com/about";
+    protected String epamMainPageBaseUrl = "https://www.epam.com/";
+    protected String epamContactUsPageBaseUrl = "https://www.epam.com/about/who-we-are/contact";
+    protected String epamAboutPageBaseUrl = "https://www.epam.com/about";
+    protected String tricentisMainPageBaseUrl = "https://demowebshop.tricentis.com/";
     public void setUpUI(){
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
