@@ -1,8 +1,9 @@
-package org.demowebshop.tricentis.ui;
+package org.demowebshop.tricentis.ui.pageObject;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import models.Form;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 
@@ -133,38 +134,19 @@ public class TricentisMainPage {
         verifyAbilityToAddingItemsToCart();
         termsAndConditionsCheckmark.click();
         checkoutButton.shouldBe(Condition.enabled).click();
-        fillOutForm();
+        Form.builder()
+                .firstName("John")
+                .lastName("Doe")
+                .email("johndoe@example.com")
+                .country("United States")
+                .city("New York")
+                .address("123 Main St")
+                .postalCode("10001")
+                .phoneNumber("555-123-4567")
+                .build()
+                .fillOutForm();
         orderConfirmationButton.click();
         Assertions.assertThat(successfulOrderConfirmation.text()).isEqualTo("Your order has been successfully processed!");
-    }
-
-    private void fillOutForm(){
-        Selenide.$(By.id("BillingNewAddress_FirstName")).setValue("John");
-        Selenide.$(By.id("BillingNewAddress_LastName")).setValue("Doe");
-        Selenide.$(By.id("BillingNewAddress_Email")).setValue("johndoe@example.com");
-        Selenide.$(By.id("BillingNewAddress_CountryId")).selectOption("United States");
-        Selenide.$(By.id("BillingNewAddress_City")).setValue("New York");
-        Selenide.$(By.id("BillingNewAddress_Address1")).setValue("123 Main St");
-        Selenide.$(By.id("BillingNewAddress_ZipPostalCode")).setValue("10001");
-        Selenide.$(By.id("BillingNewAddress_PhoneNumber")).setValue("555-123-4567");
-
-        Selenide.$(("input[onclick='Billing.save()']")).click();
-        Selenide.$(("input[onclick='Shipping.save()']")).click();
-
-//        Selenide.$(By.name("shippingmethod")).selectRadio("Ground");
-        Selenide.$(("input[class='button-1 shipping-method-next-step-button']")).click();
-
-
-//        Selenide.$("#checkout-step-payment-method").selectRadio("Credit Card");
-        Selenide.$(("input[class='button-1 payment-method-next-step-button']")).click();
-
-//        Selenide.$(By.id("CreditCardType")).selectOption("Visa");
-//        Selenide.$(By.id("CardholderName")).setValue("John Doe");
-//        Selenide.$(By.id("CardNumber")).setValue("4917484589897107");
-//        Selenide.$(By.id("ExpireYear")).selectOption("2024");
-//        Selenide.$(By.id("ExpireMonth")).selectOption("6");
-//        Selenide.$(By.id("CardCode")).setValue("123");
-        Selenide.$(("input[class='button-1 payment-info-next-step-button']")).click();
     }
 }
 

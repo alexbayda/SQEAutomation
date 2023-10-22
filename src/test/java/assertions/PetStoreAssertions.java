@@ -1,6 +1,6 @@
 package assertions;
 
-import io.swagger.petstore.models.Pet;
+import models.Pet;
 import org.testng.Assert;
 
 public class PetStoreAssertions {

@@ -1,7 +1,7 @@
 package apitests;
 
 import io.swagger.petstore.data.UserTestData;
-import io.swagger.petstore.models.User;
+import models.User;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 

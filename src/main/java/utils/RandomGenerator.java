@@ -1,8 +1,8 @@
 package utils;
 
-import io.swagger.petstore.models.Category;
-import io.swagger.petstore.models.Tag;
-import io.swagger.petstore.models.User;
+import models.Category;
+import models.Tag;
+import models.User;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.ArrayList;

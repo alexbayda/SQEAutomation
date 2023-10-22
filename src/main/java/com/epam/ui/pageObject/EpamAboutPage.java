@@ -1,4 +1,4 @@
-package com.epam.ui;
+package com.epam.ui.pageObject;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
@@ -16,7 +16,6 @@ public class EpamAboutPage {
 
     private final SelenideElement companyLogo = $x("//*[@id=\"wrapper\"]/div[2]/div[2]/div/div/header/div/div/a[1]/img[3]");
     private final SelenideElement corporateOverviewDownloadButton = $x("//*[@id=\"main\"]/div[1]/div[5]/section/div[2]/div/div/div[1]/div/div[3]/div/a");
-
     private final SelenideElement cookieAccept = $x("//*[@id=\"onetrust-accept-btn-handler\"]");
 
     public EpamAboutPage(String url) {

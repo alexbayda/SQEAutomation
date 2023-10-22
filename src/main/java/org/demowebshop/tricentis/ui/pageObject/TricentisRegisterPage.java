@@ -1,4 +1,4 @@
-package org.demowebshop.tricentis.ui;
+package org.demowebshop.tricentis.ui.pageObject;
 
 import com.codeborne.selenide.*;
 import org.assertj.core.api.Assertions;

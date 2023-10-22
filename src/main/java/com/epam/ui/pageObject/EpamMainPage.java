@@ -1,11 +1,14 @@
-package com.epam.ui;
+package com.epam.ui.pageObject;
 
-import com.codeborne.selenide.*;
-import io.qameta.allure.Flaky;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.Keys;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -26,7 +29,6 @@ public class EpamMainPage {
     private final SelenideElement mainPageSearchBox = $x("//*[@id=\"new_form_search\"]");
     private final SelenideElement searchResultsCounter = $x("//*[@id=\"main\"]/div[1]/div/section/div[2]/div[4]/section/h2");
     private final SelenideElement searchedResult = $x("//*[@id=\"main\"]/div[1]/div/section/div[2]/div[4]/section");
-
 
 
     public EpamMainPage(String url) {
@@ -58,49 +60,41 @@ public class EpamMainPage {
         }
     }
 
-    public String getCurrentLanguageTextEN(){
+    public String getCurrentLanguageTextEN() {
         return languageSelectorEN.getText();
     }
 
-    public String getCurrentLanguageTextUA(){
+    public String getCurrentLanguageTextUA() {
         return languageSelectorUA.getText();
     }
 
-    public void checkToChangeLanguageToUa(){
-        if(getCurrentLanguageTextEN().contains("EN")){
+    public void checkToChangeLanguageToUa() {
+        if (getCurrentLanguageTextEN().contains("EN")) {
             languageSelectorEN.click();
             ukrainianLanguageChanger.click();
         }
         Assertions.assertThat(getCurrentLanguageTextUA()).contains("UA");
     }
 
-
-    public void scrollToBottom() {
-//        JavascriptExecutor js = (JavascriptExecutor) Selenide.driver();
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-    }
-    @Flaky
     public void checkPoliciesListHasCorrectItems() {
+        List<String> expectedPolicyItems = Arrays.asList("INVESTORS", "COOKIE POLICY",
+                "OPEN SOURCE", "APPLICANT PRIVACY NOTICE", "PRIVACY POLICY", "WEB ACCESSIBILITY");
         Assertions.assertThat(policiesList).isNotEmpty();
-
-        List<String> allPolicyItems = policiesList.stream()
+        String allPolicyItemsString = policiesList.stream()
                 .flatMap(policyCollection -> policyCollection.texts().stream())
-                .collect(Collectors.toList());
-
-        System.out.println(allPolicyItems);
-        List<String> expectedPolicyItems = Arrays.asList("POLICIES", "INVESTORS", "OPEN SOURCE",
-                "PRIVACY POLICY", "COOKIE POLICY", "APPLICANT PRIVACY NOTICE", "WEB ACCESSIBILITY");
-        boolean allExpectedItemsFound = expectedPolicyItems.containsAll(allPolicyItems);
-        Assertions.assertThat(allExpectedItemsFound).isTrue();
+                .collect(Collectors.joining());
+        for (String expectedItem : expectedPolicyItems) {
+            Assertions.assertThat(allPolicyItemsString).as(expectedItem).contains(expectedItem);
+        }
     }
 
-    public void checkToSwitchLocationListByRegion(){
+    public void checkToSwitchLocationListByRegion() {
         ourLocationsAmericasTab.shouldBe(Condition.visible, Condition.enabled, Condition.interactable);
         ourLocationsEmeaTab.shouldBe(Condition.visible, Condition.enabled, Condition.interactable);
         ourLocationsApacTab.shouldBe(Condition.visible, Condition.enabled, Condition.interactable);
     }
 
-    public void checkSearchFunction(String wordToSearch){
+    public void checkSearchFunction(String wordToSearch) {
         searchIcon.shouldBe(Condition.interactable).click();
         mainPageSearchBox.sendKeys(wordToSearch);
         mainPageSearchBox.sendKeys(Keys.ENTER);
@@ -109,7 +103,6 @@ public class EpamMainPage {
         Assertions.assertThat(expectedText).contains(wordToSearch);
         Assertions.assertThat(resultSearch).contains(wordToSearch);
     }
-
 
 
 }

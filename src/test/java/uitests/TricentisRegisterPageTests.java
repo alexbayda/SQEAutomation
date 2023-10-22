@@ -1,21 +1,21 @@
 package uitests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.demowebshop.tricentis.ui.TricentisRegisterPage;
-import org.testng.annotations.BeforeTest;
+import org.demowebshop.tricentis.ui.pageObject.TricentisRegisterPage;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import setup.BaseTest;
+
+import static utils.ApplicationUrls.TRICENTIS_MAIN_PAGE_URL;
 
 public class TricentisRegisterPageTests extends BaseTest {
 
     TricentisRegisterPage tricentisRegisterPage;
-    @BeforeTest
+    @BeforeMethod
     public void setup() {
         setUpUI();
-        Configuration.baseUrl = tricentisMainPageBaseUrl;
         tricentisRegisterPage = new TricentisRegisterPage();
-        Selenide.open(tricentisMainPageBaseUrl);
+        Selenide.open(TRICENTIS_MAIN_PAGE_URL.getUrl());
 
     }
 

@@ -1,9 +1,9 @@
 package io.swagger.petstore.builders;
 
-import io.swagger.petstore.models.Category;
-import io.swagger.petstore.models.Pet;
-import io.swagger.petstore.models.Tag;
-import io.swagger.petstore.models.User;
+import models.Category;
+import models.Pet;
+import models.Tag;
+import models.User;
 
 import java.util.List;
 

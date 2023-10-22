@@ -1,24 +1,26 @@
 package uitests;
 
 import com.codeborne.selenide.Configuration;
-import com.epam.ui.EpamContactUsPage;
-import org.testng.annotations.BeforeTest;
+import com.epam.ui.pageObject.EpamContactUsPage;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import setup.BaseTest;
+
+import static utils.ApplicationUrls.EPAM_CONTACT_US_PAGE_URL;
 
 public class EpamContactUsPageTests extends BaseTest {
 
     EpamContactUsPage epamAboutUsPage;
 
-    @BeforeTest
+    @BeforeMethod
     public void setup() {
-        Configuration.baseUrl = epamContactUsPageBaseUrl;
+        Configuration.baseUrl = EPAM_CONTACT_US_PAGE_URL.getUrl();
         setUpUI();
-        epamAboutUsPage = new EpamContactUsPage(epamContactUsPageBaseUrl);
+        epamAboutUsPage = new EpamContactUsPage(EPAM_CONTACT_US_PAGE_URL.getUrl());
     }
 
     @Test
-    public void checkFormFieldsValidationTest(){
-        epamAboutUsPage.checkformfieldsvalidation();
+    public void checkFormFieldsValidationTest() {
+        epamAboutUsPage.checkFormFieldsValidation();
     }
 }

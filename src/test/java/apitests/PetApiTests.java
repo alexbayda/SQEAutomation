@@ -1,9 +1,9 @@
 package apitests;
 
 import io.swagger.petstore.data.PetTestData;
-import io.swagger.petstore.models.Category;
-import io.swagger.petstore.models.Pet;
-import io.swagger.petstore.models.Tag;
+import models.Category;
+import models.Pet;
+import models.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 import setup.BaseTest;

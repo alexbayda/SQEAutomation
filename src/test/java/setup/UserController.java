@@ -1,6 +1,6 @@
 package setup;
 
-import io.swagger.petstore.models.User;
+import models.User;
 
 import static io.restassured.RestAssured.given;
 
