@@ -1,4 +1,4 @@
-package ui;
+package uitests;
 
 import com.codeborne.selenide.Configuration;
 import com.epam.ui.EpamMainPage;

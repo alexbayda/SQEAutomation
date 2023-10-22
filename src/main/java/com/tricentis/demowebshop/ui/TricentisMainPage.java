@@ -3,6 +3,7 @@ package com.tricentis.demowebshop.ui;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.epam.utils.Page;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ import static com.epam.utils.RandomSelector.getRandom;
 import static com.epam.utils.RandomUserGenerator.getRandomGenerateUser;
 import static com.epam.utils.RandomUserGenerator.getRandomGeneratedEmail;
 
+@Page(url= "slashhuynya")
 public class TricentisMainPage {
 
     private final SelenideElement categoriesComputers = $x("//li[@class='inactive']//a[normalize-space()='Computers']");

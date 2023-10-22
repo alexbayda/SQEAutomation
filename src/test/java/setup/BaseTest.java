@@ -15,7 +15,8 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
 
-    protected Controller controller;
+    protected UserController userController;
+    protected PetController petController;
     protected RequestSpecification requestSpec;
     protected String environment = System.getProperty("env", "dev");
     private static String BASE_URL;
@@ -24,21 +25,22 @@ public class BaseTest {
     protected String epamContactUsPageBaseUrl = "https://www.epam.com/about/who-we-are/contact";
     protected String epamAboutPageBaseUrl = "https://www.epam.com/about";
     protected String tricentisMainPageBaseUrl = "https://demowebshop.tricentis.com/";
+
     public void setUpUI(){
         WebDriverManager.chromedriver().setup();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
-
     }
 
     public void setupAPI(){
         RestAssured.baseURI = BASE_URL;
         requestSpec = new RequestSpecBuilder()
-                .setBasePath("/carts?userId=1")
+                .setBasePath("/automationGuy")
                 .setContentType(ContentType.JSON)
                 .build();
-        controller = new Controller();
+        userController = new UserController();
+        petController = new PetController();
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter(),new AllureRestAssured());
     }
 
@@ -47,7 +49,7 @@ public class BaseTest {
             BASE_URL =  null;
         }
         else {
-            BASE_URL =  "https://fakestoreapi.com/";
+            BASE_URL =  "https://petstore.swagger.io/v2/";
         }
     }
     @BeforeClass

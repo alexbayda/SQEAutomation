@@ -1,4 +1,4 @@
-//package api;
+//package apitests;
 //
 //import io.restassured.response.Response;
 //import models.com.epam.Product;

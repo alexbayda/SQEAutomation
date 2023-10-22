@@ -1,6 +1,6 @@
 package com.epam.models;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +10,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Rating {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Tag {
 
-    @JsonProperty("rate")
-    private double rate;
-    @JsonProperty("count")
-    private int count;
+
+    private long id;
+    private String name;
 }
