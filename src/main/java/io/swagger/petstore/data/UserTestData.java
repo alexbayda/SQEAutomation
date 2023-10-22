@@ -1,4 +1,4 @@
-package com.epam.api.data;
+package io.swagger.petstore.data;
 
 
 

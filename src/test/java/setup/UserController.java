@@ -1,14 +1,14 @@
 package setup;
 
-import com.epam.models.User;
+import io.swagger.petstore.models.User;
 
 import static io.restassured.RestAssured.given;
 
 public class UserController {
 
 
-    public User getUser(String userName, String password) {
-        return given().queryParam("username", userName)
+    public void getUser(String userName, String password) {
+        given().queryParam("username", userName)
                 .queryParam("password", password)
                 .get("user/login")
                 .then().statusCode(200).extract().as(User.class);

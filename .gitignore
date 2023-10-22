@@ -1,6 +1,38 @@
-# Project exclude paths
-/.idea/
-/target/
+# IntelliJ IDEA
+.idea/
 *.iml
-/.allure/
+*.iws
+*.ipr
+.idea_modules/
+out/
+
+# Maven
+target/
+target_debug/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Build tools
+/bin/
+/bin-debug/
+/build/
+
+# Logs
+logs/
+*.log
+
+# Selenium and Selenide
+drivers/
+
+# Test reports and artifacts
 /allure-results/
+/allure-report/
+/target/
+test-output/
+surefire-reports/
+
+# Ignore XML files
+*.xml

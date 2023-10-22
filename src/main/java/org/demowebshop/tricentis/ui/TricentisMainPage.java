@@ -1,24 +1,16 @@
-package com.tricentis.demowebshop.ui;
+package org.demowebshop.tricentis.ui;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.epam.utils.Page;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.epam.utils.RandomSelector.getRandom;
-import static com.epam.utils.RandomUserGenerator.getRandomGenerateUser;
-import static com.epam.utils.RandomUserGenerator.getRandomGeneratedEmail;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
-@Page(url= "slashhuynya")
 public class TricentisMainPage {
 
     private final SelenideElement categoriesComputers = $x("//li[@class='inactive']//a[normalize-space()='Computers']");
@@ -77,7 +69,7 @@ public class TricentisMainPage {
         itemsPerPageDropdownChildOptionOne.click();
 
         sortedProductGrid.shouldBe(Condition.visible);
-        Assertions.assertThat(countItemsPerPage().size()).isEqualTo(4);
+        Assertions.assertThat(countItemsPerPage().size()).isEqualTo(value);
     }
 
     private List<SelenideElement> countItemsPerPage() {

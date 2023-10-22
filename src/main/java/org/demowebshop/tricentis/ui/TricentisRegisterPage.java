@@ -1,16 +1,15 @@
-package com.tricentis.demowebshop.ui;
+package org.demowebshop.tricentis.ui;
 
 import com.codeborne.selenide.*;
-import com.epam.utils.Page;
 import org.assertj.core.api.Assertions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.epam.utils.RandomSelector.getRandom;
-import static com.epam.utils.RandomUserGenerator.getRandomGeneratedEmail;
-import static com.epam.utils.RandomUserGenerator.getRandomGenerateUser;
+import static utils.RandomSelector.getRandom;
+import static utils.RandomGenerator.getRandomGeneratedEmail;
+import static utils.RandomGenerator.getRandomGenerateUser;
 
 public class TricentisRegisterPage {
 
