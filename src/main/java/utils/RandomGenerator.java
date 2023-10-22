@@ -42,6 +42,14 @@ public class RandomGenerator {
                 .build();
     }
 
+    public static List<User> generateRandomListOfUsers(int count) {
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            users.add(generateRandomUser());
+        }
+        return users;
+    }
+
     private static List<Tag> generateRandomTags() {
         Random random = new Random();
         List<Tag> tags = new ArrayList<>();

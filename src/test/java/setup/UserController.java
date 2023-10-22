@@ -14,21 +14,21 @@ public class UserController {
                 .then().statusCode(200).extract().as(User.class);
     }
 
-    public void getUser() {
-        getUser("alex8098", "12345");
+    public void logoutUser(String userName, String password) {
+        getUser(userName,password);
         given()
                 .get("user/logout")
                 .then().statusCode(200)
                 .extract().as(User.class);
     }
 
-    public <T> T createEntity(T entity, Class<T> entityType, String entityCount) {
+    public <T> void createEntity(T entity, Class<T> entityType, String entityCount) {
         if(entityCount.equals("objectArray")){
             entityCount = "/user/createWithArray";
         }else {
             entityCount = "/user";
         }
-        return given()
+        given()
                 .contentType("application/json")
                 .body(entity)
                 .post(entityCount)

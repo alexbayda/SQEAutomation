@@ -29,19 +29,6 @@ public class TricentisRegisterPage {
     private final SelenideElement logInNavigation = $x("//a[@class='ico-login']");
     private final SelenideElement logInButton = $x("//input[@value='Log in']");
 
-//    public <T> T apiLogin(Class<T> mainPage){
-//        String token = ApiToken.login(username, password);
-//        Selenide.executeJavaScript("window.localStorage.setItem('jvtToken')", token);
-//        Selenide.refresh();
-//        String relativeUrl = "/";
-//        if(mainPage.isAnnotationPresent(Page.class)){
-//            relativeUrl = mainPage.getAnnotation(Page.class).url();
-//        }
-//        return Selenide.open(relativeUrl, mainPage);
-//    }
-
-    //Put token in LocalStorage
-
     public void verifyValidUserRegistration() {
         registerPageTransferButton.click();
 

@@ -5,11 +5,8 @@ import io.swagger.petstore.models.User;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static io.swagger.petstore.builders.JsonObjectBuilder.buildStandardUser;
-import static utils.RandomGenerator.generateRandomUser;
+import static utils.RandomGenerator.generateRandomListOfUsers;
 
 public class UserApiTests extends BaseTest {
 
@@ -27,19 +24,11 @@ public class UserApiTests extends BaseTest {
 
     @Test
     public void logoutUserTest() {
-        userController.getUser();
+        userController.logoutUser("Alex8098", "12345");
     }
 
     @Test
     public void createListOfUsersTest() {
-        userController.createEntity(generateRandomUsers(3), Object.class, "objectArray");
-    }
-
-    private List<User> generateRandomUsers(int count) {
-        List<User> users = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
-            users.add(generateRandomUser());
-        }
-        return users;
+        userController.createEntity(generateRandomListOfUsers(3), Object.class, "objectArray");
     }
 }
