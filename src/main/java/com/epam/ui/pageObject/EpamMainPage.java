@@ -99,7 +99,7 @@ public class EpamMainPage {
         mainPageSearchBox.sendKeys(wordToSearch);
         mainPageSearchBox.sendKeys(Keys.ENTER);
         String expectedText = searchResultsCounter.text();
-        String resultSearch = searchedResult.text();
+        String resultSearch = searchedResult.shouldBe(Condition.visible).text();
         Assertions.assertThat(expectedText).contains(wordToSearch);
         Assertions.assertThat(resultSearch).contains(wordToSearch);
     }
