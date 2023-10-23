@@ -16,20 +16,19 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class EpamMainPage {
 
-    private final SelenideElement themeSwitcherToggle = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/section/div");
+    private final SelenideElement themeSwitcherToggle = $x("(//div[@class='theme-switcher'])[2]");
     private final SelenideElement darkMode = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/div/div/nav/div/div/div/span");
     private final SelenideElement lightMode = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/div/div/nav/div/div/div/span");
-    private final SelenideElement languageSelectorEN = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/ul/li[2]/div/div/button/span");
-    private final SelenideElement ukrainianLanguageChanger = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/ul/li[2]/div/nav/ul/li[6]/a");
-    private final SelenideElement languageSelectorUA = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/ul/li[2]/div/button");
-    private final List<ElementsCollection> policiesList = Collections.singletonList($$x("//*[@id=\"wrapper\"]/div[3]/div[1]/footer/div/div/div[1]/div[2]"));
-    private final SelenideElement ourLocationsAmericasTab = $x("//*[@id=\"id-890298b8-f4a7-3f75-8a76-be36dc4490fd\"]/div[1]/div/div/div[1]/a");
-    private final SelenideElement ourLocationsEmeaTab = $x("//*[@id=\"id-890298b8-f4a7-3f75-8a76-be36dc4490fd\"]/div[1]/div/div/div[1]/a");
-    private final SelenideElement ourLocationsApacTab = $x("//*[@id=\"id-890298b8-f4a7-3f75-8a76-be36dc4490fd\"]/div[1]/div/div/div[1]/a");
-    private final SelenideElement searchIcon = $x("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/ul/li[3]/div/button/span[1]");
-    private final SelenideElement mainPageSearchBox = $x("//*[@id=\"new_form_search\"]");
-    private final SelenideElement searchResultsCounter = $x("//*[@id=\"main\"]/div[1]/div/section/div[2]/div[4]/section/h2");
-    private final SelenideElement searchedResult = $x("//*[@id=\"main\"]/div[1]/div/section/div[2]/div[4]/section");
+    private final SelenideElement languageSelectorButton = $x("//button[@class='location-selector__button']");
+    private final SelenideElement ukrainianLanguageChanger = $x("//a[@class='location-selector__link'][contains(.,'Україна (Українська)')]");
+    private final List<ElementsCollection> policiesList = Collections.singletonList($$x("//div[@class='policies']"));
+    private final SelenideElement ourLocationsAmericasTab = $x("//a[@data-item='0']");
+    private final SelenideElement ourLocationsEmeaTab = $x("//a[@data-item='1']");
+    private final SelenideElement ourLocationsApacTab = $x("//a[@data-item='2']");
+    private final SelenideElement searchIcon = $x("//span[contains(@class,'search-icon')]");
+    private final SelenideElement mainPageSearchBox = $x("//input[@id='new_form_search']");
+    private final SelenideElement searchResultsCounter = $x("//h2[@class='search-results__counter']");
+    private final SelenideElement searchedResult = $x("(//p[contains(@class,'search-results__description')])");
 
 
     public EpamMainPage(String url) {
@@ -61,20 +60,16 @@ public class EpamMainPage {
         }
     }
 
-    public String getCurrentLanguageTextEN() {
-        return languageSelectorEN.getText();
-    }
-
-    public String getCurrentLanguageTextUA() {
-        return languageSelectorUA.getText();
+    public String getCurrentLanguageText() {
+        return languageSelectorButton.getText();
     }
 
     public void checkToChangeLanguageToUa() {
-        if (getCurrentLanguageTextEN().contains("EN")) {
-            languageSelectorEN.click();
+        if (getCurrentLanguageText().contains("EN")) {
+            languageSelectorButton.click();
             ukrainianLanguageChanger.click();
         }
-        Assertions.assertThat(getCurrentLanguageTextUA()).contains("UA");
+        Assertions.assertThat(getCurrentLanguageText()).contains("UA");
     }
 
     public void checkPoliciesListHasCorrectItems() {
@@ -91,8 +86,12 @@ public class EpamMainPage {
 
     public void checkToSwitchLocationListByRegion() {
         ourLocationsAmericasTab.shouldBe(Condition.visible, Condition.enabled, Condition.interactable);
+        Assertions.assertThat(ourLocationsAmericasTab.text()).contains("AMERICA");
         ourLocationsEmeaTab.shouldBe(Condition.visible, Condition.enabled, Condition.interactable);
+        Assertions.assertThat(ourLocationsEmeaTab.text()).contains("EMEA");
         ourLocationsApacTab.shouldBe(Condition.visible, Condition.enabled, Condition.interactable);
+        Assertions.assertThat(ourLocationsApacTab.text()).contains("APAC");
+
     }
 
     public void checkSearchFunction(String wordToSearch) {

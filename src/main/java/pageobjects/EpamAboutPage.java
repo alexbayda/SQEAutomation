@@ -14,9 +14,9 @@ import static com.codeborne.selenide.Selenide.open;
 public class EpamAboutPage {
 
 
-    private final SelenideElement companyLogo = $x("//*[@id=\"wrapper\"]/div[2]/div[2]/div/div/header/div/div/a[1]/img[3]");
+    private final SelenideElement companyLogo = $x("(//img[@class='header__logo header__logo-light'])[1]");
     private final SelenideElement corporateOverviewDownloadButton = $x("//*[@id=\"main\"]/div[1]/div[5]/section/div[2]/div/div/div[1]/div/div[3]/div/a");
-    private final SelenideElement cookieAccept = $x("//*[@id=\"onetrust-accept-btn-handler\"]");
+    private final SelenideElement cookieAccept = $x("//button[@id='onetrust-accept-btn-handler']");
 
     public EpamAboutPage(String url) {
         open(url);
