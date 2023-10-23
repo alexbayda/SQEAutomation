@@ -2,7 +2,6 @@ package setup;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -10,7 +9,10 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import static utils.ApplicationUrls.PETSTORE_BASE_URL;
 
@@ -21,9 +23,12 @@ public class BaseTest {
     protected PetController petController;
     protected RequestSpecification requestSpec;
 
-    public void setUpUI() {
-        WebDriverManager.chromedriver().setup();
-        Configuration.browser = "chrome";
+    public void setUpUI(String browser) {
+        if (browser.equalsIgnoreCase("chrome")) {
+            Configuration.browser = "chrome";
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            Configuration.browser = "firefox";
+        }
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;
     }
@@ -39,8 +44,9 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void init() {
-        setUpUI();
+    @Parameters("browser")
+    public void init(@Optional("chrome") String browser) {
+        setUpUI(browser);
         setupAPI();
     }
 

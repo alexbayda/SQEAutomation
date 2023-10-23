@@ -2,6 +2,7 @@ package pageobjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.Keys;
@@ -98,6 +99,7 @@ public class EpamMainPage {
         searchIcon.shouldBe(Condition.interactable).click();
         mainPageSearchBox.sendKeys(wordToSearch);
         mainPageSearchBox.sendKeys(Keys.ENTER);
+        Selenide.sleep(5000);
         String expectedText = searchResultsCounter.text();
         String resultSearch = searchedResult.shouldBe(Condition.visible).text();
         Assertions.assertThat(expectedText).contains(wordToSearch);
