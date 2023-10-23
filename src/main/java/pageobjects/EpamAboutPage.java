@@ -1,4 +1,4 @@
-package com.epam.ui.pageObject;
+package pageobjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;

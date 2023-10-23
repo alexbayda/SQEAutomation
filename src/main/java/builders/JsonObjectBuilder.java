@@ -1,4 +1,4 @@
-package io.swagger.petstore.builders;
+package builders;
 
 import models.Category;
 import models.Pet;

@@ -1,7 +1,7 @@
 package uitests;
 
 import com.codeborne.selenide.Selenide;
-import org.demowebshop.tricentis.ui.pageObject.TricentisRegisterPage;
+import pageobjects.TricentisRegisterPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import setup.BaseTest;

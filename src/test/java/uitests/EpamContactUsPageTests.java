@@ -1,7 +1,7 @@
 package uitests;
 
 import com.codeborne.selenide.Configuration;
-import com.epam.ui.pageObject.EpamContactUsPage;
+import pageobjects.EpamContactUsPage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import setup.BaseTest;

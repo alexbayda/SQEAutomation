@@ -1,4 +1,4 @@
-package com.epam.ui.assertions;
+package assertions;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;

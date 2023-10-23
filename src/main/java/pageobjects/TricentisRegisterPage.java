@@ -1,4 +1,4 @@
-package org.demowebshop.tricentis.ui.pageObject;
+package pageobjects;
 
 import com.codeborne.selenide.*;
 import org.assertj.core.api.Assertions;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
-import static utils.RandomSelector.getRandom;
+import static utils.RandomElementSelector.getRandom;
 import static utils.RandomGenerator.getRandomGeneratedEmail;
 import static utils.RandomGenerator.getRandomGenerateUser;
 

@@ -1,11 +1,11 @@
-package com.epam.ui.pageObject;
+package pageobjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.epam.ui.assertions.EpamPageAssertions.assertCheckBoxTurnRed;
-import static com.epam.ui.assertions.EpamPageAssertions.assertRequiredFieldTurnRedAndErrorMessageIsVisible;
+import static assertions.EpamPageAssertions.assertCheckBoxTurnRed;
+import static assertions.EpamPageAssertions.assertRequiredFieldTurnRedAndErrorMessageIsVisible;
 
 public class EpamContactUsPage {
 

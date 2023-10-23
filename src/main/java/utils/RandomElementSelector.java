@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 @UtilityClass
-public class RandomSelector {
+public class RandomElementSelector {
     public static <E> E getRandom(List<E> element) {
         Random random = new Random();
         int randomIndex = random.nextInt(element.size());

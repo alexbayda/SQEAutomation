@@ -1,4 +1,4 @@
-package org.demowebshop.tricentis.ui.pageObject;
+package pageobjects;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;

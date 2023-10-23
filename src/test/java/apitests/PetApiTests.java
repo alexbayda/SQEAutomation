@@ -1,6 +1,6 @@
 package apitests;
 
-import io.swagger.petstore.data.PetTestData;
+import dataproviders.PetTestData;
 import models.Category;
 import models.Pet;
 import models.Tag;
@@ -11,7 +11,7 @@ import setup.BaseTest;
 import java.util.List;
 
 import static assertions.PetStoreAssertions.*;
-import static io.swagger.petstore.builders.JsonObjectBuilder.buildStandardPet;
+import static builders.JsonObjectBuilder.buildStandardPet;
 import static utils.RandomGenerator.generateRandomPhotoUrls;
 import static utils.RandomGenerator.generateRandomString;
 

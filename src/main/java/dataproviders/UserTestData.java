@@ -1,4 +1,4 @@
-package io.swagger.petstore.data;
+package dataproviders;
 
 
 

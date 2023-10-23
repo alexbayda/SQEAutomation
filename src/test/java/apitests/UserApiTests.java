@@ -1,11 +1,11 @@
 package apitests;
 
-import io.swagger.petstore.data.UserTestData;
+import dataproviders.UserTestData;
 import models.User;
 import org.testng.annotations.Test;
 import setup.BaseTest;
 
-import static io.swagger.petstore.builders.JsonObjectBuilder.buildStandardUser;
+import static builders.JsonObjectBuilder.buildStandardUser;
 import static utils.RandomGenerator.generateRandomListOfUsers;
 
 public class UserApiTests extends BaseTest {
