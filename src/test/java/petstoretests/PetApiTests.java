@@ -1,4 +1,4 @@
-package apitests;
+package petstoretests;
 
 import dataproviders.PetTestData;
 import models.Category;

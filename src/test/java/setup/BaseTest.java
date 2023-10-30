@@ -2,6 +2,7 @@ package setup;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -26,8 +27,10 @@ public class BaseTest {
     public void setUpUI(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             Configuration.browser = "chrome";
+            WebDriverManager.chromedriver().setup();
         } else if (browser.equalsIgnoreCase("firefox")) {
             Configuration.browser = "firefox";
+            WebDriverManager.firefoxdriver().setup();
         }
         Configuration.browserSize = "1920x1080";
         Configuration.headless = false;

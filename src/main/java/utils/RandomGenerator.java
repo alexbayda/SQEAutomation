@@ -85,6 +85,17 @@ public class RandomGenerator {
         return randomName.toString();
     }
 
+    public static String generateRandomIntAsString(int length) {
+        if (length <= 0) {
+            throw new IllegalArgumentException("Length must be greater than zero.");
+        }
+
+        Random random = new Random();
+        int minValue = (int) Math.pow(10, length - 1);
+        int maxValue = (int) Math.pow(10, length) - 1;
+        return String.valueOf(random.nextInt(maxValue - minValue + 1) + minValue);
+    }
+
     public static Category generateRandomCategory() {
         Random random = new Random();
         int categoryId = random.nextInt(1000);
